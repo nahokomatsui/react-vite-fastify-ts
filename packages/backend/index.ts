@@ -41,9 +41,10 @@ app.listen(process.env.PORT ?? 8080, (err, address) => {
   console.log(`\x1b[32mServer listening at ${address}\x1b[0m`);
 
   if (isDev) {
+    const path = "exported/openapi.json";
     const document = app.swagger();
-    fs.writeFile("../frontend/openapi.json", JSON.stringify(document), () =>
-      console.log("frontend/openapi.json successfully exported")
+    fs.writeFile(path, JSON.stringify(document), () =>
+      console.log(`${path} successfully exported`)
     );
   }
 });

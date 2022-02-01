@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "aspida:generate": "rimraf src/api/aspida && openapi2aspida"
+    "aspida:generate": "rimraf src/api/aspida && openapi2aspida",
+    "aspida:generate:watch": "watch \"npm run aspida:generate\" ../backend/exported"
   },
   "dependencies": {
     "@aspida/axios": "^1.7.1",
@@ -23,7 +24,8 @@
     "openapi2aspida": "^0.17.0",
     "rimraf": "^3.0.2",
     "typescript": "^4.4.4",
-    "vite": "^2.7.2"
+    "vite": "^2.7.2",
+    "watch": "^1.0.2"
   },
   "volta": {
     "node": "16.13.2"
