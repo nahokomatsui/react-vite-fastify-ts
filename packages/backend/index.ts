@@ -4,11 +4,18 @@ import fs from "fs";
 import cors from "fastify-cors";
 import pingRoutes from "./routes/ping.routes";
 import articleRoutes from "./routes/article.routes";
+import dotenv from "dotenv";
+
+const isDev = process.env.NODE_ENV === "development";
+
+if (isDev) {
+  dotenv.config();
+}
 
 const app = fastify();
 
 app.register(cors, {
-  origin: "http://localhost:3000",
+  origin: process.env.FRONTEND_BASE_URL,
 });
 
 app.register(swagger, {
@@ -33,10 +40,12 @@ app.listen(process.env.PORT ?? 8080, (err, address) => {
   }
   console.log(`\x1b[32mServer listening at ${address}\x1b[0m`);
 
-  const document = app.swagger();
-  fs.writeFile("../frontend/openapi.json", JSON.stringify(document), () =>
-    console.log("frontend/openapi.json successfully exported")
-  );
+  if (isDev) {
+    const document = app.swagger();
+    fs.writeFile("../frontend/openapi.json", JSON.stringify(document), () =>
+      console.log("frontend/openapi.json successfully exported")
+    );
+  }
 });
 
 export { app };
