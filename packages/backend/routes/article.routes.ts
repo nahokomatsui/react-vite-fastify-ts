@@ -1,5 +1,6 @@
 import { FastifyPluginAsync } from "fastify";
-import { CreateArticleBodyRequest } from "../schema/article.schema";
+import { CreateArticleRequestBody } from "../schema/article.schema";
+import { createArticle } from "../services/article.service";
 import { route } from "../utils/route";
 
 const routes: FastifyPluginAsync = async (app) => {
@@ -7,11 +8,10 @@ const routes: FastifyPluginAsync = async (app) => {
     app,
     "post",
     "/articles",
-    { request: { body: CreateArticleBodyRequest } },
+    { request: { body: CreateArticleRequestBody } },
     async (request) => {
       const { body } = request;
-      console.log(body);
-      console.log(body.tags?.includes("fuga"));
+      await createArticle(body);
     }
   );
 };

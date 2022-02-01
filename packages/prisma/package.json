@@ -1,0 +1,16 @@
+{
+  "name": "prisma",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "migrate:dev": "cross-env DATABASE_URL=postgresql://local:local@localhost:5433/react-vite-fastify-ts prisma migrate dev"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.9.0",
+    "cross-env": "^7.0.3",
+    "prisma": "^3.9.0"
+  },
+  "volta": {
+    "node": "16.13.2"
+  }
+}

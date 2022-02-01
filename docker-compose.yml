@@ -1,0 +1,11 @@
+version: "3"
+services:
+  db:
+    image: postgres:10
+    container_name: "react-vite-fastify-ts-postgres"
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_USER: local
+      POSTGRES_PASSWORD: local
+      POSTGRES_DB: "react-vite-fastify-ts"

@@ -1,0 +1,21 @@
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Article {
+  id String @id @default(uuid())
+  title String
+  tags Tag[]
+
+  @@index([tags])
+}
+
+enum Tag {
+  hoge
+  fuga
+}

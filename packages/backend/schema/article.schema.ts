@@ -1,11 +1,10 @@
 import { Static, Type } from "@sinclair/typebox";
 
-export const CreateArticleBodyRequest = Type.Object({
-  id: Type.String(),
+export const CreateArticleRequestBody = Type.Object({
   title: Type.String(),
   tags: Type.Optional(
     Type.Array(Type.Union([Type.Literal("hoge"), Type.Literal("fuga")]))
   ),
 });
 
-export type CreateArticleBodyRequest = Static<typeof CreateArticleBodyRequest>;
+export type CreateArticleRequestBody = Static<typeof CreateArticleRequestBody>;

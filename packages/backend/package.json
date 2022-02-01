@@ -4,19 +4,23 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development ts-node-dev index.ts",
-    "start": "cross-env NODE_ENV=production ts-node index.ts"
+    "start": "cross-env NODE_ENV=production ts-node index.ts",
+    "prisma:generate": "prisma generate --schema ../prisma/schema.prisma"
   },
   "dependencies": {
+    "@prisma/client": "^3.9.0",
     "@sinclair/typebox": "^0.23.3",
     "cross-env": "^7.0.3",
     "fastify": "^3.27.0",
     "fastify-cors": "^6.0.2",
     "fastify-swagger": "^4.13.1",
-    "ts-node": "^10.4.0"
+    "ts-node": "^10.4.0",
+    "velona": "^0.7.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.13",
     "dotenv": "^15.0.0",
+    "prisma": "^3.9.0",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.5.5"
   },
