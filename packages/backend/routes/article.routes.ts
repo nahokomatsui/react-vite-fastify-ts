@@ -10,22 +10,16 @@ import {
   getArticle,
   getArticles,
 } from "../services/article.service";
-import { route } from "../utils/route";
+import { methods } from "../utils/methods";
 
 const routes: FastifyPluginAsync = async (app) => {
-  route(
-    app,
-    "get",
-    "/articles",
-    { response: GetArticlesResponseBody },
-    async () => {
-      return await getArticles();
-    }
-  );
+  const { get, post } = methods(app);
 
-  route(
-    app,
-    "get",
+  get("/articles", { response: GetArticlesResponseBody }, async () => {
+    return await getArticles();
+  });
+
+  get(
     "/articles/:id",
     {
       request: { params: GetArticleRequestParams },
@@ -41,9 +35,7 @@ const routes: FastifyPluginAsync = async (app) => {
     }
   );
 
-  route(
-    app,
-    "post",
+  post(
     "/articles",
     { request: { body: CreateArticleRequestBody } },
     async (request) => {
