@@ -47,7 +47,7 @@ const route =
         if (hasStatusCode(result)) {
           reply.status(result.statusCode).send(result.body);
         } else {
-          reply.status(200).send(result);
+          reply.status(method === "post" ? 201 : 200).send(result);
         }
       }
     );
@@ -55,8 +55,14 @@ const route =
 
 const hasStatusCode = <ResSchema extends TSchema>(
   result: Result<ResSchema>
-): result is { statusCode: number; body: Static<ResSchema> } => {
+): result is ResultWithStatusCode<ResSchema> => {
   return !!(result as any)?.statusCode;
 };
 
-type Result<ResSchema extends TSchema> = Static<ResSchema>;
+type Result<ResSchema extends TSchema> =
+  | Static<ResSchema>
+  | ResultWithStatusCode<ResSchema>;
+type ResultWithStatusCode<ResSchema extends TSchema> = {
+  statusCode: number;
+  body: Static<ResSchema>;
+};
