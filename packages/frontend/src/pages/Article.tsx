@@ -11,10 +11,10 @@ const Article: FC<Props> = ({ id }) => {
   const { data: article } = useAspidaSWR(apiClient.articles._id(id));
 
   return (
-    <div>
+    <div className="Article-article">
       <h1>Article</h1>
       {article ? (
-        <div>
+        <>
           <div className="Article-article-title">{article.title}</div>
           <div className="Article-article-tags">
             {article.tags?.map((tag, index) => (
@@ -23,7 +23,7 @@ const Article: FC<Props> = ({ id }) => {
               </div>
             ))}
           </div>
-        </div>
+        </>
       ) : (
         <div>Loading...</div>
       )}
