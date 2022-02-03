@@ -52,10 +52,4 @@ const hasStatusCode = <ResSchema extends TSchema>(
   return !!(result as any)?.statusCode;
 };
 
-type Result<ResSchema extends TSchema> =
-  | Static<ResSchema>
-  | ResultWithStatusCode<ResSchema>;
-type ResultWithStatusCode<ResSchema extends TSchema> = {
-  statusCode: number;
-  body: Static<ResSchema>;
-};
+type Result<ResSchema extends TSchema> = Static<ResSchema>;

@@ -1,19 +1,21 @@
 import { FC } from "react";
-import Rocon, { useLocation, useRoutes } from "rocon/react";
+import Rocon, { useRoutes } from "rocon/react";
 import Articles from "./pages/Articles";
+import Article from "./pages/Article";
 import Home from "./pages/Home";
+
+export const articlesRoutes = Rocon.Path()
+  .exact({
+    action: () => <Articles />,
+  })
+  .any("id", { action: ({ id }) => <Article id={id} /> });
 
 export const routes = Rocon.Path()
   .exact({
     action: () => <Home />,
   })
-  .routes({
-    articles: {
-      action: () => <Articles />,
-    },
-  });
+  .route("articles", (route) => route.attach(articlesRoutes));
 
 export const Routes: FC = () => {
-  const location = useLocation();
   return useRoutes(routes);
 };

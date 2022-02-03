@@ -10,3 +10,18 @@ export const createArticle = depend(
     });
   }
 );
+
+export const getArticles = depend({ prisma }, async ({ prisma }) => {
+  return {
+    articles: await prisma.article.findMany(),
+  };
+});
+
+export const getArticle = depend({ prisma }, async ({ prisma }, id: string) => {
+  const article = await prisma.article.findUnique({
+    where: {
+      id,
+    },
+  });
+  return article ?? undefined;
+});
