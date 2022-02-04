@@ -1,9 +1,9 @@
 import useAspidaSWR from "@aspida/swr";
 import { FC } from "react";
 import { Link } from "rocon/react";
-import { apiClient } from "../api";
-import { articlesRoutes } from "../routes";
-import "../styles/Articles.css";
+import { apiClient } from "~/api";
+import { articlesRoutes } from "~/routes";
+import "~/styles/Articles.css";
 
 const Articles: FC = () => {
   const { data } = useAspidaSWR(apiClient.articles);

@@ -1,8 +1,8 @@
 import { FC, useState } from "react";
-import logo from "../logo.svg";
-import "../styles/Home.css";
+import logo from "~/logo.svg";
+import "~/styles/Home.css";
 import useAspidaSWR from "@aspida/swr";
-import { apiClient } from "../api";
+import { apiClient } from "~/api";
 
 const Home: FC = () => {
   const [count, setCount] = useState(0);

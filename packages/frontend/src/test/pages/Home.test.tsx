@@ -1,6 +1,6 @@
 import { describe, test, expect } from "vitest";
 import { render } from "@testing-library/react";
-import Home from "../../pages/Home";
+import Home from "~/pages/Home";
 import { pingResponse } from "../mocks/api/handlers";
 
 describe("Home", () => {

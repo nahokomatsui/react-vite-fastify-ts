@@ -1,7 +1,7 @@
 import useAspidaSWR from "@aspida/swr";
 import { FC } from "react";
-import { apiClient } from "../api";
-import "../styles/Article.css";
+import { apiClient } from "~/api";
+import "~/styles/Article.css";
 
 type Props = {
   id: string;

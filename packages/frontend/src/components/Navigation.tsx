@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Link } from "rocon/react";
-import { routes } from "../routes";
-import "../styles/Navigation.css";
+import { routes } from "~/routes";
+import "~/styles/Navigation.css";
 
 const Navigation: FC = () => {
   return (

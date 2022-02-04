@@ -1,8 +1,8 @@
 import { FC } from "react";
 import Rocon, { useRoutes } from "rocon/react";
-import Articles from "./pages/Articles";
-import Article from "./pages/Article";
-import Home from "./pages/Home";
+import Articles from "~/pages/Articles";
+import Article from "~/pages/Article";
+import Home from "~/pages/Home";
 
 export const articlesRoutes = Rocon.Path()
   .exact({
