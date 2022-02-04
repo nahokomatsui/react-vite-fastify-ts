@@ -1,4 +1,4 @@
-import { pong } from "../../services/ping.service";
+import { pong } from "~/services/ping.service";
 
 describe("pingService", () => {
   describe("pong", () => {

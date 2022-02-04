@@ -2,8 +2,8 @@ import fastify from "fastify";
 import swagger from "fastify-swagger";
 import fs from "fs";
 import cors from "fastify-cors";
-import pingRoutes from "./routes/ping.routes";
-import articleRoutes from "./routes/article.routes";
+import pingRoutes from "~/routes/ping.routes";
+import articleRoutes from "~/routes/article.routes";
 import dotenv from "dotenv";
 
 const isDev = process.env.NODE_ENV === "development";

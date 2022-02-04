@@ -1,5 +1,5 @@
 import { prismaMock } from "../mocks/prisma";
-import { createArticle } from "../../services/article.service";
+import { createArticle } from "~/services/article.service";
 
 describe("articleService", () => {
   describe("createArticle", () => {

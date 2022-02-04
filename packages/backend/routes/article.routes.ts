@@ -4,13 +4,13 @@ import {
   GetArticleRequestParams,
   GetArticleResponseBody,
   GetArticlesResponseBody,
-} from "../schema/article.schema";
+} from "~/schema/article.schema";
 import {
   createArticle,
   getArticle,
   getArticles,
-} from "../services/article.service";
-import { methods } from "../utils/methods";
+} from "~/services/article.service";
+import { methods } from "~/utils/methods";
 
 const routes: FastifyPluginAsync = async (app) => {
   const { get, post } = methods(app);

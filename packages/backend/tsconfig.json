@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "target": "es2017",
     "lib": ["esnext"],
     "module": "commonjs",
@@ -10,5 +11,8 @@
     "strict": true,
     "skipLibCheck": true,
     "noEmit": true,
+    "paths": {
+      "~/*": ["./*"]
+    }
   }
 }
