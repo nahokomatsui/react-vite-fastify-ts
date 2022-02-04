@@ -16,13 +16,15 @@ const Home: FC = () => {
         <p>
           Data from API:{" "}
           {error ? (
-            <span style={{ fontWeight: "bold", color: "red" }}>[ERROR]</span>
+            <span style={{ fontWeight: "bold", color: "red" }}>
+              [ERROR] {error.toString()}
+            </span>
           ) : (
             (
               <span style={{ fontWeight: "bold", color: "greenyellow" }}>
                 {data}
               </span>
-            ) ?? "[Loading...]"
+            ) ?? "Loading..."
           )}
         </p>
         <p>
