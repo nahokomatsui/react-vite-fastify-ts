@@ -2,7 +2,7 @@ import useAspidaSWR from "@aspida/swr";
 import { FC } from "react";
 import { Link } from "rocon/react";
 import { apiClient } from "../api";
-import { articlesRoutes, routes } from "../routes";
+import { articlesRoutes } from "../routes";
 import "../styles/Articles.css";
 
 const Articles: FC = () => {

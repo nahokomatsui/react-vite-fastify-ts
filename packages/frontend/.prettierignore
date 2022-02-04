@@ -1,0 +1,5 @@
+dist
+dist-ssr
+*.local
+
+src/api/aspida
