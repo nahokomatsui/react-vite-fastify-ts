@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import logo from "~/logo.svg";
-import "~/styles/Home.css";
+import * as styles from "~/styles/Home.css";
 import useAspidaSWR from "@aspida/swr";
 import { apiClient } from "~/api";
 
@@ -9,9 +9,9 @@ const Home: FC = () => {
   const { data, error } = useAspidaSWR(apiClient.ping);
 
   return (
-    <div className="Home">
-      <header className="Home-header">
-        <img src={logo} className="Home-logo" alt="logo" />
+    <div className={styles.root}>
+      <header>
+        <img src={logo} className={styles.logo} alt="logo" />
         <p>Hello Vite + React!</p>
         <p>
           Data from API:{" "}
@@ -28,7 +28,11 @@ const Home: FC = () => {
           )}
         </p>
         <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
+          <button
+            type="button"
+            onClick={() => setCount((count) => count + 1)}
+            className={styles.button}
+          >
             count is: {count}
           </button>
         </p>
@@ -37,7 +41,7 @@ const Home: FC = () => {
         </p>
         <p>
           <a
-            className="Home-link"
+            className={styles.link}
             href="https://reactjs.org"
             target="_blank"
             rel="noopener noreferrer"
@@ -46,7 +50,7 @@ const Home: FC = () => {
           </a>
           {" | "}
           <a
-            className="Home-link"
+            className={styles.link}
             href="https://vitejs.dev/guide/features.html"
             target="_blank"
             rel="noopener noreferrer"

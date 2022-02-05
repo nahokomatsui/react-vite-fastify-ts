@@ -3,26 +3,26 @@ import { FC } from "react";
 import { Link } from "rocon/react";
 import { apiClient } from "~/api";
 import { articlesRoutes } from "~/routes";
-import "~/styles/Articles.css";
+import * as styles from "~/styles/Articles.css";
 
 const Articles: FC = () => {
   const { data } = useAspidaSWR(apiClient.articles);
 
   return (
-    <div className="Articles">
+    <div>
       <h1>Articles</h1>
-      <div className="Articles-articles">
+      <div className={styles.articles}>
         {data?.articles.map((article) => (
-          <div key={article.id} className="Articles-article">
+          <div key={article.id} className={styles.article}>
             <Link
-              className="Articles-article-card"
+              className={styles.articleCard}
               route={articlesRoutes.anyRoute}
               match={{ id: article.id }}
             >
-              <div className="Articles-article-title">{article.title}</div>
-              <div className="Articles-article-tags">
+              <div className={styles.articleTitle}>{article.title}</div>
+              <div className={styles.articleTags}>
                 {article.tags?.map((tag, index) => (
-                  <div key={index} className="Articles-article-tag">
+                  <div key={index} className={styles.articleTag}>
                     {tag}
                   </div>
                 ))}
